@@ -1,7 +1,10 @@
 {
-  "folders": [
-    {
-      "path": "."
-    }
-  ]
+    "folders": [
+        {
+            "path": ".",
+        },
+    ],
+    "settings": {
+        "LaravelExtraIntellisense.phpCommand": "docker compose exec -w /var/www/html foxslash.test php -r \"{code}\"",
+    },
 }

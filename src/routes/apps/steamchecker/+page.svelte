@@ -1,4 +1,4 @@
-<div class="wrapper">
+<section>
 	<h1>SteamChecker</h1>
 	<p>
 		Besides looking through every one of your steam games, searching for a specific game to see if
@@ -9,7 +9,7 @@
 		bundles to let you know if you own the game or not. It also has wishlist support to highlight
 		games you want on Steam!
 	</p>
-	<h3>How to Use</h3>
+	<h2>How to Use</h2>
 	<p>
 		There will be a new extension icon in Chrome. Click on that to input your 64bit SteamID or steam
 		profile name (NOT nickname) if you have set your URL. Click "Save" and you're done! Your SteamID
@@ -33,6 +33,9 @@
 	<p>
 		You can always <a href="/contact">send me a message</a> if you have questions or comments or anything.
 	</p>
+</section>
+
+<section>
 	<h2>Version History</h2>
 	<div class="minimizeBlock" id="miniVersion">
 		<h3>Version 0.6</h3>
@@ -75,4 +78,4 @@
 			<li>Initial release</li>
 		</ul>
 	</div>
-</div>
+</section>

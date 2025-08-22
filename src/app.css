@@ -1,3 +1,56 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+section {
+	@apply p-5
+		pb-6
+		rounded-lg 
+		border-2
+	border-neutral-200
+		border-opacity-50
+	bg-neutral-100
+		bg-opacity-90
+	text-neutral-800
+	dark:border-neutral-800
+		dark:border-opacity-50
+	dark:bg-neutral-800 
+		dark:bg-opacity-90
+	dark:text-neutral-200
+	 	shadow-md
+		my-8;
+}
+section > *:first-child {
+	@apply mt-0;
+}
+section > *:last-child {
+	@apply mb-0;
+}
+
+h1 {
+	@apply text-2xl
+		mt-5
+		mb-2;
+}
+
+h2 {
+	@apply text-xl
+		mt-7
+		mb-2;
+}
+
+h3 {
+	@apply text-lg
+		mb-2
+		mt-5;
+}
+
+p {
+	@apply mt-2
+		mb-5;
+}
+
+a {
+	@apply underline
+		underline-offset-2;
+}

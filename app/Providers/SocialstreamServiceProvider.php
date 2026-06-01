@@ -30,10 +30,18 @@ class SocialstreamServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Socialstream::resolvesSocialiteUsersUsing(ResolveSocialiteUser::class);
-        Socialstream::createUsersFromProviderUsing(CreateUserFromProvider::class);
-        Socialstream::createConnectedAccountsUsing(CreateConnectedAccount::class);
-        Socialstream::updateConnectedAccountsUsing(UpdateConnectedAccount::class);
+        Socialstream::createUsersFromProviderUsing(
+            CreateUserFromProvider::class,
+        );
+        Socialstream::createConnectedAccountsUsing(
+            CreateConnectedAccount::class,
+        );
+        Socialstream::updateConnectedAccountsUsing(
+            UpdateConnectedAccount::class,
+        );
         Socialstream::handlesInvalidStateUsing(HandleInvalidState::class);
-        Socialstream::generatesProvidersRedirectsUsing(GenerateRedirectForProvider::class);
+        Socialstream::generatesProvidersRedirectsUsing(
+            GenerateRedirectForProvider::class,
+        );
     }
 }

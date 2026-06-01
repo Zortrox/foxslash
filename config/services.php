@@ -35,9 +35,10 @@ return [
     ],
 
     'steam' => [
+        'api_key' => env('STEAM_API_KEY'),
         'client_id' => null,
         'client_secret' => env('STEAM_CLIENT_SECRET'),
         'redirect' => env('STEAM_REDIRECT_URI'),
-        //'allowed_hosts' => ['example.com'],
+        'allowed_hosts' => ['foxslash.com', 'localhost'],
     ],
 ];

@@ -4,15 +4,15 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
     public function up(): void
     {
         Schema::create('steam_games', function (Blueprint $table) {
-            $table->id();
+            $table->unsignedBigInteger('appid')->primary();
+            $table->string('name', 1_000);
             $table->timestamps();
         });
     }

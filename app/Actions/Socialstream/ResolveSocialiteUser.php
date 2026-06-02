@@ -10,16 +10,29 @@ use Laravel\Socialite\Facades\Socialite;
 class ResolveSocialiteUser implements ResolvesSocialiteUsers
 {
     /**
+     * Cache of resolved users per provider within the current request.
+     *
+     * @var array<string, User>
+     */
+    private array $resolved = [];
+
+    /**
      * Resolve the user for a given provider.
      */
     public function resolve(string $provider): User
     {
+        if (array_key_exists($provider, $this->resolved)) {
+            return $this->resolved[$provider];
+        }
+
         $user = Socialite::driver($provider)->user();
 
         if (Socialstream::generatesMissingEmails()) {
-            $user->email = $user->getEmail() ?? ("{$user->id}@{$provider}".config('app.domain'));
+            $user->email =
+                $user->getEmail() ??
+                "{$user->id}@{$provider}" . config('app.domain');
         }
 
-        return $user;
+        return $this->resolved[$provider] = $user;
     }
 }

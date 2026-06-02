@@ -15,7 +15,7 @@ return [
         ],
     ],
     'features' => [
-        Features::generateMissingEmails(),
+        // Features::generateMissingEmails(),
         Features::createAccountOnFirstLogin(),
         // Features::globalLogin(),
         // Features::authExistingUnlinkedUsers(),

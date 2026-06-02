@@ -37,9 +37,9 @@ const logout = () => {
 
         <Banner />
 
-        <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
+        <div class="min-h-screen bg-gray-950">
             <nav
-                class="border-b border-gray-100 bg-white dark:border-gray-700 dark:bg-gray-800"
+                class="border-b border-gray-800 bg-gray-900"
             >
                 <!-- Primary Navigation Menu -->
                 <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -77,7 +77,7 @@ const logout = () => {
                                         <span class="inline-flex rounded-md">
                                             <button
                                                 type="button"
-                                                class="inline-flex items-center rounded-md border border-transparent bg-white px-3 py-2 text-sm leading-4 font-medium text-gray-500 transition duration-150 ease-in-out hover:text-gray-700 focus:bg-gray-50 focus:outline-none active:bg-gray-50 dark:bg-gray-800 dark:text-gray-400 dark:hover:text-gray-300 dark:focus:bg-gray-700 dark:active:bg-gray-700"
+                                                class="inline-flex items-center rounded-md border border-transparent bg-gray-900 px-3 py-2 text-sm leading-4 font-medium text-gray-400 transition duration-150 ease-in-out hover:text-gray-200 focus:bg-gray-800 focus:outline-none active:bg-gray-800"
                                             >
                                                 {{
                                                     $page.props.auth.user
@@ -142,7 +142,7 @@ const logout = () => {
                                                 "
                                             >
                                                 <div
-                                                    class="border-t border-gray-200 dark:border-gray-600"
+                                                    class="border-t border-gray-800"
                                                 />
 
                                                 <div
@@ -234,7 +234,7 @@ const logout = () => {
                                         >
                                             <button
                                                 type="button"
-                                                class="inline-flex items-center rounded-md border border-transparent bg-white px-3 py-2 text-sm leading-4 font-medium text-gray-500 transition duration-150 ease-in-out hover:text-gray-700 focus:bg-gray-50 focus:outline-none active:bg-gray-50 dark:bg-gray-800 dark:text-gray-400 dark:hover:text-gray-300 dark:focus:bg-gray-700 dark:active:bg-gray-700"
+                                                class="inline-flex items-center rounded-md border border-transparent bg-gray-900 px-3 py-2 text-sm leading-4 font-medium text-gray-400 transition duration-150 ease-in-out hover:text-gray-200 focus:bg-gray-800 focus:outline-none active:bg-gray-800"
                                             >
                                                 {{ $page.props.auth.user.name }}
 
@@ -281,7 +281,7 @@ const logout = () => {
                                         </DropdownLink>
 
                                         <div
-                                            class="border-t border-gray-200 dark:border-gray-600"
+                                            class="border-t border-gray-800"
                                         />
 
                                         <!-- Authentication -->
@@ -298,7 +298,7 @@ const logout = () => {
                         <!-- Hamburger -->
                         <div class="-me-2 flex items-center sm:hidden">
                             <button
-                                class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 transition duration-150 ease-in-out hover:bg-gray-100 hover:text-gray-500 focus:bg-gray-100 focus:text-gray-500 focus:outline-none dark:text-gray-500 dark:hover:bg-gray-900 dark:hover:text-gray-400 dark:focus:bg-gray-900 dark:focus:text-gray-400"
+                                class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 transition duration-150 ease-in-out hover:bg-gray-800 hover:text-gray-200 focus:bg-gray-800 focus:text-gray-200 focus:outline-none"
                                 @click="
                                     showingNavigationDropdown =
                                         !showingNavigationDropdown
@@ -344,7 +344,7 @@ const logout = () => {
                         block: showingNavigationDropdown,
                         hidden: !showingNavigationDropdown,
                     }"
-                    class="sm:hidden"
+                    class="sm:hidden bg-gray-900 border-t border-gray-800"
                 >
                     <div class="space-y-1 pt-2 pb-3">
                         <ResponsiveNavLink
@@ -357,7 +357,7 @@ const logout = () => {
 
                     <!-- Responsive Settings Options -->
                     <div
-                        class="border-t border-gray-200 pt-4 pb-1 dark:border-gray-600"
+                        class="border-t border-gray-800 pt-4 pb-1"
                     >
                         <div class="flex items-center px-4">
                             <div
@@ -377,7 +377,7 @@ const logout = () => {
 
                             <div>
                                 <div
-                                    class="text-base font-medium text-gray-800 dark:text-gray-200"
+                                    class="text-base font-medium text-gray-200"
                                 >
                                     {{ $page.props.auth.user.name }}
                                 </div>
@@ -415,7 +415,7 @@ const logout = () => {
                                 v-if="$page.props.jetstream.hasTeamFeatures"
                             >
                                 <div
-                                    class="border-t border-gray-200 dark:border-gray-600"
+                                    class="border-t border-gray-800"
                                 />
 
                                 <div
@@ -453,7 +453,7 @@ const logout = () => {
                                     "
                                 >
                                     <div
-                                        class="border-t border-gray-200 dark:border-gray-600"
+                                        class="border-t border-gray-800"
                                     />
 
                                     <div
@@ -507,7 +507,7 @@ const logout = () => {
             <!-- Page Heading -->
             <header
                 v-if="$slots.header"
-                class="bg-white shadow dark:bg-gray-800"
+                class="bg-gray-900 shadow border-b border-gray-800"
             >
                 <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
                     <slot name="header" />

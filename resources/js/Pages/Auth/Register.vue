@@ -92,9 +92,9 @@ const submit = () => {
                         <Checkbox id="terms" v-model:checked="form.terms" name="terms" required/>
 
                         <div class="ml-2">
-                            I agree to the <a :href="route('terms.show')" class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
+                            I agree to the <a :href="route('terms.show')" class="underline text-sm text-gray-400 hover:text-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 focus:ring-offset-gray-900"
                                               target="_blank">Terms
-                            of Service</a> and <a :href="route('policy.show')" class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
+                            of Service</a> and <a :href="route('policy.show')" class="underline text-sm text-gray-400 hover:text-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 focus:ring-offset-gray-900"
                                                   target="_blank">Privacy
                             Policy</a>
                         </div>
@@ -105,7 +105,7 @@ const submit = () => {
 
             <div class="flex items-center justify-end mt-4">
                 <Link :href="route('login')"
-                      class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
+                      class="underline text-sm text-gray-400 hover:text-orange-400 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 focus:ring-offset-gray-900">
                     Already registered?
                 </Link>
 

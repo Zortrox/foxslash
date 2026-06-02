@@ -6,6 +6,7 @@ import GitLabIcon from '@/Components/SocialstreamIcons/GitLabIcon.vue';
 import GoogleIcon from '@/Components/SocialstreamIcons/GoogleIcon.vue';
 import LinkedInIcon from '@/Components/SocialstreamIcons/LinkedInIcon.vue';
 import SlackIcon from '@/Components/SocialstreamIcons/SlackIcon.vue';
+import SteamIcon from '@/Components/SocialstreamIcons/SteamIcon.vue';
 import TwitterIcon from '@/Components/SocialstreamIcons/TwitterIcon.vue';
 
 defineProps({
@@ -19,7 +20,7 @@ defineProps({
 </script>
 
 <template>
-    <div class="text-gray-900 dark:text-gray-100">
+    <div class="text-gray-100">
         <BitbucketIcon v-if="provider.id === 'bitbucket'" :class="classes"/>
         <FacebookIcon v-if="provider.id === 'facebook'" :class="classes"/>
         <GithubIcon v-if="provider.id === 'github'" :class="classes"/>
@@ -27,6 +28,7 @@ defineProps({
         <GoogleIcon v-if="provider.id === 'google'" :class="classes"/>
         <LinkedInIcon v-if="provider.id === 'linkedin' || provider.id === 'linkedin-openid'" :class="classes"/>
         <SlackIcon v-if="provider.id === 'slack'" :class="classes"/>
+        <SteamIcon v-if="provider.id === 'steam'" :class="classes"/>
         <TwitterIcon v-if="provider.id === 'twitter' || provider.id === 'twitter-oauth-2'" :class="classes"/>
     </div>
 </template>

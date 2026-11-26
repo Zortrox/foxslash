@@ -34,6 +34,15 @@ return [
         ],
     ],
 
+    'steamchecker' => [
+        /*
+         * Exact redirect URIs the extension sign-in may send codes to:
+         * Chrome https://<extension-id>.chromiumapp.org/ and Firefox
+         * https://<hash>.extensions.allizom.org/. Comma separated.
+         */
+        'redirect_uris' => array_values(array_filter(array_map('trim', explode(',', (string) env('STEAMCHECKER_REDIRECT_URIS', ''))))),
+    ],
+
     'steam' => [
         'api_key' => env('STEAM_API_KEY'),
         'client_id' => null,

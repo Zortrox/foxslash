@@ -3,6 +3,7 @@
 namespace App\Jobs;
 
 use App\Models\SteamGame;
+use App\Services\SteamAppListFile;
 use App\Services\SteamService;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Queue\Queueable;
@@ -36,14 +37,16 @@ class SteamFetchGames implements ShouldQueue
             ->chunk($chunk_size)
             ->each(function ($chunk, $index) use ($total_chunks) {
                 Log::debug(
-                    'Upserting app chunk ' .
+                    'Upserting app chunk '.
                         $index +
                         1 .
-                        ' of ' .
+                        ' of '.
                         $total_chunks,
                 );
                 SteamGame::query()->upsert($chunk->all(), ['appid'], ['name']);
             });
+
+        app(SteamAppListFile::class)->write();
 
         Log::debug('Finished app fetching');
     }

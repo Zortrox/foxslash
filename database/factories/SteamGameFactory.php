@@ -2,10 +2,11 @@
 
 namespace Database\Factories;
 
+use App\Models\SteamGame;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\SteamGame>
+ * @extends Factory<SteamGame>
  */
 class SteamGameFactory extends Factory
 {
@@ -17,7 +18,8 @@ class SteamGameFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'appid' => fake()->unique()->numberBetween(10, 3_000_000),
+            'name' => fake()->unique()->words(3, true),
         ];
     }
 }

@@ -1,0 +1,110 @@
+<script setup lang="ts">
+import { useId } from 'vue';
+
+withDefaults(
+    defineProps<{
+        /** Slide the fox out from behind the slash once on mount. */
+        peek?: boolean;
+    }>(),
+    { peek: false },
+);
+
+const clipId = `fox-peek-${useId()}`;
+</script>
+
+<template>
+    <svg
+        viewBox="0 0 64 64"
+        xmlns="http://www.w3.org/2000/svg"
+        role="img"
+        aria-label="FoxSlash"
+        :class="['fox-logo', { 'fox-logo--peek': peek }]"
+    >
+        <defs>
+            <clipPath :id="clipId">
+                <polygon points="0,0 37.4,0 20.4,64 0,64" />
+            </clipPath>
+        </defs>
+
+        <g :clip-path="`url(#${clipId})`">
+            <g class="fox-logo__head">
+                <!-- Shifted toward the slash so only one eye peeks out. -->
+                <g transform="translate(7.6 0)">
+                    <path d="M4.3 26 L6.5 6.5 L18 21 Z" fill="#f97a1f" stroke="#f97a1f" stroke-width="2.4" stroke-linejoin="round"/>
+                    <path d="M6.8 22 L8.2 11.5 L14.2 19.5 Z" fill="#3a1a10" stroke="#3a1a10" stroke-width="1.2" stroke-linejoin="round"/>
+                    <path d="M20 21 L31.5 6.5 L33.7 26 Z" fill="#f97a1f" stroke="#f97a1f" stroke-width="2.4" stroke-linejoin="round"/>
+                    <path d="M23.8 19.5 L29.8 11.5 L31.2 22 Z" fill="#3a1a10" stroke="#3a1a10" stroke-width="1.2" stroke-linejoin="round"/>
+                    <path d="M3 27 C3 21.5 7 18.5 12 18.5 L26 18.5 C31 18.5 35 21.5 35 27 C35 33 32 37.5 27.5 41.5 L21.2 46.6 C19.9 47.6 18.1 47.6 16.8 46.6 L10.5 41.5 C6 37.5 3 33 3 27 Z" fill="#f97a1f"/>
+                    <path d="M4.2 31.5 C8.5 32.6 14 35 19 40 C24 35 29.5 32.6 33.8 31.5 C32.6 35.6 30.4 38.8 27.5 41.5 L21.2 46.6 C19.9 47.6 18.1 47.6 16.8 46.6 L10.5 41.5 C7.6 38.8 5.4 35.6 4.2 31.5 Z" fill="#fff3e4"/>
+                    <ellipse cx="12.6" cy="30" rx="2.4" ry="3" fill="#2a120a"/>
+                    <circle cx="13.5" cy="28.9" r="0.95" fill="#fff"/>
+                    <ellipse cx="25.4" cy="30" rx="2.4" ry="3" fill="#2a120a"/>
+                    <circle cx="26.3" cy="28.9" r="0.95" fill="#fff"/>
+                    <path d="M16.6 42.4 C16.6 41.3 17.7 40.8 19 40.8 C20.3 40.8 21.4 41.3 21.4 42.4 C21.4 43.4 20.2 44.2 19 44.2 C17.8 44.2 16.6 43.4 16.6 42.4 Z" fill="#2a120a"/>
+                    <ellipse cx="8.6" cy="36" rx="2.6" ry="1.6" fill="#ff8fb1"/>
+                    <ellipse cx="29.4" cy="36" rx="2.6" ry="1.6" fill="#ff8fb1"/>
+                </g>
+            </g>
+        </g>
+
+        <path
+            d="M24.6 61 L35.4 61 L51.4 3 L40.6 3 Z"
+            fill="#ffb21e"
+            stroke="#ffb21e"
+            stroke-width="3"
+            stroke-linejoin="round"
+        />
+
+        <!-- Paw lies along the slash with its toes curled over the edge. -->
+        <g class="fox-logo__paw" transform="translate(-1.2 6) rotate(105 29 45)">
+            <path
+                d="M24.2 46 C24.2 42.2 26.4 41 29 41 C31.6 41 33.8 42.2 33.8 46 C33.8 48 31.6 49 29 49 C26.4 49 24.2 48 24.2 46 Z"
+                fill="#f97a1f"
+            />
+            <path
+                d="M27.4 41.8 v3 M30.6 41.8 v3"
+                stroke="#a8440c"
+                stroke-width="1"
+                stroke-linecap="round"
+            />
+        </g>
+    </svg>
+</template>
+
+<style scoped>
+.fox-logo {
+    overflow: visible;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .fox-logo--peek .fox-logo__head {
+        animation: peek 900ms cubic-bezier(0.16, 1, 0.3, 1) 250ms both;
+    }
+
+    .fox-logo--peek .fox-logo__paw {
+        animation: paw 500ms cubic-bezier(0.16, 1, 0.3, 1) 750ms both;
+    }
+}
+
+@keyframes peek {
+    from {
+        transform: translateX(26px);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes paw {
+    from {
+        opacity: 0;
+        transform: translate(-1.2px, 6px) rotate(105deg) translate(-2px, 3px);
+        transform-origin: 29px 45px;
+    }
+    to {
+        opacity: 1;
+        transform: translate(-1.2px, 6px) rotate(105deg);
+        transform-origin: 29px 45px;
+    }
+}
+</style>

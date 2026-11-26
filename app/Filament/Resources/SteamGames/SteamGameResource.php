@@ -32,9 +32,7 @@ class SteamGameResource extends Resource
 
     public static function getRelations(): array
     {
-        return [
-            //
-        ];
+        return [RelationManagers\AliasesRelationManager::class];
     }
 
     public static function getPages(): array

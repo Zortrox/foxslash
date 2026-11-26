@@ -5,6 +5,6 @@
         },
     ],
     "settings": {
-        "LaravelExtraIntellisense.phpCommand": "docker compose exec -w /var/www/html foxslash.test php -r \"{code}\"",
+        "LaravelExtraIntellisense.phpCommand": "php -r \"{code}\"",
     },
 }

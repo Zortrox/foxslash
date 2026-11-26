@@ -14,11 +14,9 @@ class SteamGamesTable
     {
         return $table
             ->columns([
-                TextColumn::make('appid')
-                    ->numeric()
-                    ->sortable(),
-                TextColumn::make('name')
-                    ->searchable(),
+                TextColumn::make('appid')->numeric()->sortable(),
+                TextColumn::make('name')->searchable(),
+                TextColumn::make('aliases')->listWithLineBreaks(),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -31,13 +29,9 @@ class SteamGamesTable
             ->filters([
                 //
             ])
-            ->recordActions([
-                EditAction::make(),
-            ])
+            ->recordActions([EditAction::make()])
             ->toolbarActions([
-                BulkActionGroup::make([
-                    DeleteBulkAction::make(),
-                ]),
+                BulkActionGroup::make([DeleteBulkAction::make()]),
             ]);
     }
 }

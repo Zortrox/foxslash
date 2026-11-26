@@ -22,3 +22,11 @@ yarn-error.log
 /.nova
 /.vscode
 /.zed
+
+# personal Docker override (tailnet access) — not for the team
+/compose.override.yaml
+
+# Wayfinder generated routes
+/resources/js/actions
+/resources/js/routes
+/resources/js/wayfinder

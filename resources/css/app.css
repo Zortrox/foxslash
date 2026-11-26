@@ -1,5 +1,129 @@
 @import 'tailwindcss';
 
-[x-cloak] {
-    display: none;
+@import 'tw-animate-css';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+    --font-sans:
+        'Instrument Sans', ui-sans-serif, system-ui, sans-serif,
+        'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+        'Noto Color Emoji';
+
+    --font-display: 'Fredoka', 'Instrument Sans', ui-rounded, sans-serif;
+
+    /* Night-den accents (DESIGN.md): each has one job. */
+    --color-sun: oklch(0.86 0.16 85);
+    --color-berry: oklch(0.76 0.14 355);
+    --color-mint: oklch(0.8 0.12 170);
+    --color-lilac: oklch(0.74 0.12 300);
+    --color-bluesky: oklch(0.62 0.2 255);
+
+    --radius-lg: var(--radius);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-sm: calc(var(--radius) - 4px);
+
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+
+    --color-destructive: var(--destructive);
+    --color-destructive-foreground: var(--destructive-foreground);
+
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+
+    --color-chart-1: var(--chart-1);
+    --color-chart-2: var(--chart-2);
+    --color-chart-3: var(--chart-3);
+    --color-chart-4: var(--chart-4);
+    --color-chart-5: var(--chart-5);
+
+    --color-sidebar: var(--sidebar);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+    /* Dark only ("The Fox's Den", see DESIGN.md). */
+    color-scheme: dark;
+    --background: oklch(0.13 0.028 261.692);
+    --foreground: oklch(0.872 0.01 258.338);
+    --card: oklch(0.21 0.034 264.665);
+    --card-foreground: oklch(0.872 0.01 258.338);
+    --popover: oklch(0.21 0.034 264.665);
+    --popover-foreground: oklch(0.872 0.01 258.338);
+    --primary: oklch(0.705 0.213 47.604);
+    --primary-foreground: oklch(1 0 0);
+    --secondary: oklch(0.278 0.033 256.848);
+    --secondary-foreground: oklch(0.872 0.01 258.338);
+    --muted: oklch(0.278 0.033 256.848);
+    --muted-foreground: oklch(0.707 0.022 261.325);
+    --accent: oklch(0.278 0.033 256.848);
+    --accent-foreground: oklch(0.75 0.183 55.934);
+    --destructive: oklch(0.577 0.245 27.325);
+    --destructive-foreground: oklch(0.704 0.191 22.216);
+    --border: oklch(0.278 0.033 256.848);
+    --input: oklch(0.373 0.034 259.733);
+    --ring: oklch(0.705 0.213 47.604);
+    --chart-1: oklch(0.705 0.213 47.604);
+    --chart-2: oklch(0.75 0.183 55.934);
+    --chart-3: oklch(0.837 0.128 66.29);
+    --chart-4: oklch(0.551 0.027 264.364);
+    --chart-5: oklch(0.373 0.034 259.733);
+    --radius: 0.625rem;
+    --sidebar: oklch(0.21 0.034 264.665);
+    --sidebar-foreground: oklch(0.872 0.01 258.338);
+    --sidebar-primary: oklch(0.705 0.213 47.604);
+    --sidebar-primary-foreground: oklch(1 0 0);
+    --sidebar-accent: oklch(0.278 0.033 256.848);
+    --sidebar-accent-foreground: oklch(0.75 0.183 55.934);
+    --sidebar-border: oklch(0.278 0.033 256.848);
+    --sidebar-ring: oklch(0.705 0.213 47.604);
+    --fox-glow: 0 0 0 3px oklch(0.705 0.213 47.604 / 0.25);
+}
+
+@layer base {
+    * {
+        @apply border-border outline-ring/50;
+    }
+
+    body {
+        @apply bg-background text-foreground;
+    }
+
+    ::selection {
+        background: oklch(0.705 0.213 47.604 / 0.35);
+        color: oklch(1 0 0);
+    }
+
+    html {
+        scrollbar-color: oklch(0.373 0.034 259.733) transparent;
+    }
 }

@@ -2,22 +2,23 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Concerns\HasTimestamps;
+use Database\Factories\ConnectedAccountFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use JoelButcher\Socialstream\ConnectedAccount as SocialstreamConnectedAccount;
-use JoelButcher\Socialstream\Events\ConnectedAccountCreated;
-use JoelButcher\Socialstream\Events\ConnectedAccountDeleted;
-use JoelButcher\Socialstream\Events\ConnectedAccountUpdated;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class ConnectedAccount extends SocialstreamConnectedAccount
+/**
+ * An external identity (currently only Steam) linked to a user for sign in.
+ */
+class ConnectedAccount extends Model
 {
+    /** @use HasFactory<ConnectedAccountFactory> */
     use HasFactory;
-    use HasTimestamps;
 
     /**
      * The attributes that are mass assignable.
      *
-     * @var array
+     * @var list<string>
      */
     protected $fillable = [
         'provider',
@@ -33,23 +34,42 @@ class ConnectedAccount extends SocialstreamConnectedAccount
     ];
 
     /**
-     * The attributes that should be cast.
+     * The attributes that should be hidden for serialization.
      *
-     * @var array
+     * @var list<string>
      */
-    protected $casts = [
-        'created_at' => 'datetime',
-        'expires_at' => 'datetime',
-    ];
+    protected $hidden = ['token', 'secret', 'refresh_token'];
 
     /**
-     * The event map for the model.
-     *
-     * @var array
+     * @return array<string, string>
      */
-    protected $dispatchesEvents = [
-        'created' => ConnectedAccountCreated::class,
-        'updated' => ConnectedAccountUpdated::class,
-        'deleted' => ConnectedAccountDeleted::class,
-    ];
+    protected function casts(): array
+    {
+        return [
+            'expires_at' => 'datetime',
+        ];
+    }
+
+    /**
+     * @return BelongsTo<User, $this>
+     */
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    /**
+     * The data shared with the frontend for the profile page.
+     *
+     * @return array{id: int, provider: string, avatar_path: ?string, created_at: ?string}
+     */
+    public function toSharedArray(): array
+    {
+        return [
+            'id' => $this->id,
+            'provider' => $this->provider,
+            'avatar_path' => $this->avatar_path,
+            'created_at' => $this->created_at?->diffForHumans(),
+        ];
+    }
 }

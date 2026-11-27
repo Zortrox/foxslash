@@ -15,6 +15,8 @@ class SteamGame extends Model
 
     public $primaryKey = 'appid';
 
+    public $incrementing = false;
+
     public $fillable = ['appid', 'name'];
 
     public function formattedName(): Attribute

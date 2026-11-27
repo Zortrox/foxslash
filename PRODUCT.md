@@ -31,11 +31,13 @@ A one-person site with a personal voice, not a company or product marketing site
 ## Capabilities and Constraints
 
 Confirmed now:
+
 - Steam sign in (no email from Steam; new users get a placeholder address and no password), optional password, two-factor and passkeys through Fortify. Email signups must verify their email; Steam accounts are marked verified.
 - Public steamchecker API with legacy `/apps/steamchecker/*` URLs kept for installed extension versions.
 - Filament admin for Steam games and aliases.
 
 Planned for signed-in users (not built yet):
+
 - Manage steamchecker: linked Steam account, owned and wishlist status, and extension settings tied to the account.
 - Suggest game aliases (alternate names bundle sites use for Steam games).
 - Later: suggest new bundle sites. Each site needs its own page template config (path pattern, CSS selectors, style variant), matching the extension's schema_version 2 page config.
@@ -57,8 +59,8 @@ Undecided: how alias and site suggestions are reviewed and published, and which 
 
 ## Evidence on Hand
 
-- Logo and images: `public/` and `_old_files/images/`.
-- Real copy: the bio on the welcome page (`resources/js/Pages/Welcome.vue`) and the old steamchecker page copy and changelog in `_old_files/site.php`.
+- Logo and images: `public/`, plus the extension's store promo art and screenshots in `_old_files/images/`.
+- Real copy: the bio on the welcome page (`resources/js/pages/Welcome.vue`).
 - No testimonials, user counts or press exist. Do not invent them.
 
 ## Product Principles

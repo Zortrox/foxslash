@@ -14,7 +14,8 @@ export function usePermission() {
     );
 
     const hasPermission = (name: string): boolean =>
-        isSuperAdmin.value || (user.value?.permissions?.includes(name) ?? false);
+        isSuperAdmin.value ||
+        (user.value?.permissions?.includes(name) ?? false);
 
     return { isSuperAdmin, hasPermission };
 }

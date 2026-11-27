@@ -35,7 +35,9 @@ type OAuthProps = {
 const page = usePage();
 const oauth = computed(() => page.props.oauth as OAuthProps);
 const steamAccount = computed(() =>
-    oauth.value.connectedAccounts.find((account) => account.provider === 'steam'),
+    oauth.value.connectedAccounts.find(
+        (account) => account.provider === 'steam',
+    ),
 );
 const error = computed(() => page.props.errors?.oauth as string | undefined);
 </script>

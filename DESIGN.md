@@ -93,6 +93,7 @@ The system is minimal and dark only. There is no light mode. Surfaces are flat t
 Components are soft and friendly: rounded corners, pill-shaped links on personal pages, gentle hover changes, and a rounded display face, so the cute fox feels at home. App pages are the Laravel Vue starter kit (shadcn-vue) restyled to this palette.
 
 **Key Characteristics:**
+
 - Dark only, cool gray neutrals, orange leads; sun, berry, mint and lilac are small night accents.
 - Flat tonal layers with thin borders; a subtle orange glow is the only lift.
 - Soft, rounded, quiet components.
@@ -105,12 +106,14 @@ Tokens map to shadcn variables in `resources/css/app.css`: Den Black is `--backg
 Cool blue-gray darks led by orange, with four small night accents defined as Tailwind colors in `@theme` (`text-sun`, `text-berry`, `text-mint`, `text-lilac`, `bg-bluesky`).
 
 ### Primary
+
 - **Fox Orange** (`fox-orange`, Tailwind `orange-500`): primary buttons (Register), active borders, focus rings (`ring-orange-500`).
 - **Fox Orange Deep** (`fox-orange-deep`, `orange-600`): primary button hover and pressed states.
 - **Fox Glow** (`fox-glow`, `orange-400`): link and nav hover text, highlighted names in copy (the "Zortrox" handle), focused input borders.
 - **Fox Glow Soft** (`fox-glow-soft`, `orange-300`): hover on text already shown in Fox Glow.
 
 ### Night accents
+
 - **Sun** (`sun`): the "Slash" half of the wordmark, the logo's slash, stars.
 - **Berry** (`berry`): blush on the fox, flowers, one highlighted phrase in copy.
 - **Mint** (`mint`): meadow grass and ground line, the globe icon, one highlighted phrase.
@@ -118,6 +121,7 @@ Cool blue-gray darks led by orange, with four small night accents defined as Tai
 - **Bluesky** (`bluesky`): hover fill of the Bluesky icon button only.
 
 ### Neutral
+
 - **Den Black** (`den-black`, `gray-950`): page background.
 - **Den Wall** (`den-wall`, `gray-900`): header bar and panels.
 - **Den Shelf** (`den-shelf`, `gray-800`): borders between regions, raised controls such as the "Login with Steam" button, hover fills.
@@ -128,10 +132,12 @@ Cool blue-gray darks led by orange, with four small night accents defined as Tai
 - **Moon White** (`#ffffff`): headings and text on orange.
 
 ### Status
+
 - **Danger** (`danger`, `red-600`): destructive buttons and error text (`red-400`/`red-500` on dark).
 - **Success** (`success`, `green-400`): confirmations such as "Saved."
 
 ### Named Rules
+
 **The Orange Leads Rule.** Orange marks what is interactive, focused, or the fox, and is the only accent allowed on buttons and focus. Night accents decorate the fox's world (logo, meadow, highlighted words) in small doses; never as large fills, button colors or status colors.
 
 **The Dark Den Rule.** There is no light theme. `<html>` always has the `dark` class and the palette lives once on `:root` in `resources/css/app.css` as shadcn tokens (`--background`, `--card`, `--primary`, ...). Never add light surfaces or a theme toggle.
@@ -145,6 +151,7 @@ Cool blue-gray darks led by orange, with four small night accents defined as Tai
 **Character:** Fredoka carries the cuteness in headings; Instrument Sans keeps body copy and forms plain and readable.
 
 ### Hierarchy
+
 - **Headline** (Fredoka 600, 1.875rem): page headings, in Moon White. Auth page titles use Fredoka at 1.5rem.
 - **Title** (600, 1.125rem): section and card titles on settings pages.
 - **Body** (400, 1rem, 1.625 via `leading-relaxed`; the home bio uses 1.125rem): descriptive copy in Ash Text, inside `max-w-xl`.
@@ -164,6 +171,7 @@ Flat by default. Depth comes from tonal steps (Den Black floor, Den Wall panels,
 The chosen lift is a subtle orange glow: focus rings in Fox Orange, and a faint glow around the fox character. A glow marks attention, never hierarchy.
 
 ### Named Rules
+
 **The Glow Means Attention Rule.** An orange glow appears only on focus, on the active item, or on the fox. Panels and cards never glow.
 
 ## Shapes

@@ -92,12 +92,40 @@ const stars = [
                         />
                     </g>
                     <g class="fox__leg fox__leg--a">
-                        <rect x="49" y="52" width="7" height="30" rx="3.5" fill="#c9561a" />
-                        <rect x="49" y="70" width="7" height="12" rx="3.5" fill="#2a120a" />
+                        <rect
+                            x="49"
+                            y="52"
+                            width="7"
+                            height="30"
+                            rx="3.5"
+                            fill="#c9561a"
+                        />
+                        <rect
+                            x="49"
+                            y="70"
+                            width="7"
+                            height="12"
+                            rx="3.5"
+                            fill="#2a120a"
+                        />
                     </g>
                     <g class="fox__leg fox__leg--b">
-                        <rect x="88" y="52" width="7" height="30" rx="3.5" fill="#c9561a" />
-                        <rect x="88" y="70" width="7" height="12" rx="3.5" fill="#2a120a" />
+                        <rect
+                            x="88"
+                            y="52"
+                            width="7"
+                            height="30"
+                            rx="3.5"
+                            fill="#c9561a"
+                        />
+                        <rect
+                            x="88"
+                            y="70"
+                            width="7"
+                            height="12"
+                            rx="3.5"
+                            fill="#2a120a"
+                        />
                     </g>
                     <g class="fox__body">
                         <path
@@ -108,7 +136,9 @@ const stars = [
                             d="M58 60 C66 63 84 63 92 58 C90 61 82 64 72 64 C64 64 60 62 58 60 Z"
                             fill="#fff3e4"
                         />
-                        <g transform="translate(100 40) scale(1.14) translate(-100 -40)">
+                        <g
+                            transform="translate(100 40) scale(1.14) translate(-100 -40)"
+                        >
                             <!-- Ears first so the head covers their bases. -->
                             <path
                                 d="M98.5 34 L101.5 10 L112.5 29 Z"
@@ -148,21 +178,72 @@ const stars = [
                                 d="M132.6 42 L122 44.6 C118 50 110 52 103 50 C108 48 112 45 116 43 C120 41.4 126 40.6 133.4 40.2 C133.6 41 133.3 41.8 132.6 42 Z"
                                 fill="#fff3e4"
                             />
-                            <ellipse cx="133" cy="39.2" rx="2" ry="1.6" fill="#2a120a" />
+                            <ellipse
+                                cx="133"
+                                cy="39.2"
+                                rx="2"
+                                ry="1.6"
+                                fill="#2a120a"
+                            />
                             <g class="fox__eye">
-                                <ellipse cx="114.5" cy="34" rx="2.2" ry="2.8" fill="#2a120a" />
-                                <circle cx="115.3" cy="33" r="0.9" fill="#fff" />
+                                <ellipse
+                                    cx="114.5"
+                                    cy="34"
+                                    rx="2.2"
+                                    ry="2.8"
+                                    fill="#2a120a"
+                                />
+                                <circle
+                                    cx="115.3"
+                                    cy="33"
+                                    r="0.9"
+                                    fill="#fff"
+                                />
                             </g>
-                            <ellipse cx="112" cy="41.5" rx="3" ry="1.7" fill="#ff8fb1" />
+                            <ellipse
+                                cx="112"
+                                cy="41.5"
+                                rx="3"
+                                ry="1.7"
+                                fill="#ff8fb1"
+                            />
                         </g>
                     </g>
                     <g class="fox__leg fox__leg--b">
-                        <rect x="45" y="52" width="7.5" height="30" rx="3.75" fill="#f97a1f" />
-                        <rect x="45" y="70" width="7.5" height="12" rx="3.75" fill="#3a1a10" />
+                        <rect
+                            x="45"
+                            y="52"
+                            width="7.5"
+                            height="30"
+                            rx="3.75"
+                            fill="#f97a1f"
+                        />
+                        <rect
+                            x="45"
+                            y="70"
+                            width="7.5"
+                            height="12"
+                            rx="3.75"
+                            fill="#3a1a10"
+                        />
                     </g>
                     <g class="fox__leg fox__leg--a">
-                        <rect x="84" y="52" width="7.5" height="30" rx="3.75" fill="#f97a1f" />
-                        <rect x="84" y="70" width="7.5" height="12" rx="3.75" fill="#3a1a10" />
+                        <rect
+                            x="84"
+                            y="52"
+                            width="7.5"
+                            height="30"
+                            rx="3.75"
+                            fill="#f97a1f"
+                        />
+                        <rect
+                            x="84"
+                            y="70"
+                            width="7.5"
+                            height="12"
+                            rx="3.75"
+                            fill="#3a1a10"
+                        />
                     </g>
                 </svg>
             </div>

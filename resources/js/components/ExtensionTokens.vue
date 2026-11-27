@@ -25,8 +25,8 @@ defineProps<{
         />
 
         <p v-if="tokens.length === 0" class="text-sm text-muted-foreground">
-            SteamChecker isn't connected anywhere. Sign in from the
-            extension's popup to connect it.
+            SteamChecker isn't connected anywhere. Sign in from the extension's
+            popup to connect it.
         </p>
 
         <ul v-else class="space-y-3">

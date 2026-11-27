@@ -7,7 +7,8 @@ import { redirect } from '@/routes/oauth';
 defineOptions({
     layout: {
         title: 'Connect SteamChecker',
-        description: 'Let the extension check bundle pages against your Steam library and wishlist',
+        description:
+            'Let the extension check bundle pages against your Steam library and wishlist',
     },
 });
 
@@ -79,7 +80,9 @@ defineProps<{
 
         <div class="space-y-2 text-sm text-muted-foreground">
             <p>SteamChecker will be able to read:</p>
-            <ul class="list-disc space-y-1 pl-5 text-foreground marker:text-primary">
+            <ul
+                class="list-disc space-y-1 pl-5 text-foreground marker:text-primary"
+            >
                 <li>the games you own on Steam</li>
                 <li>your Steam wishlist</li>
             </ul>
@@ -95,9 +98,7 @@ defineProps<{
             >
                 Cancel
             </Button>
-            <Button type="submit" name="decision" value="allow">
-                Allow
-            </Button>
+            <Button type="submit" name="decision" value="allow"> Allow </Button>
         </div>
     </form>
 </template>

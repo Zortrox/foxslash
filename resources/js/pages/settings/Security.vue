@@ -120,16 +120,16 @@ defineOptions({
     </div>
 
     <template v-if="hasPassword">
-    <ManageTwoFactor
-        :canManageTwoFactor="canManageTwoFactor"
-        :requiresConfirmation="requiresConfirmation"
-        :twoFactorEnabled="twoFactorEnabled"
-    />
+        <ManageTwoFactor
+            :canManageTwoFactor="canManageTwoFactor"
+            :requiresConfirmation="requiresConfirmation"
+            :twoFactorEnabled="twoFactorEnabled"
+        />
 
-    <ManagePasskeys
-        :canManagePasskeys="canManagePasskeys"
-        :passkeys="passkeys"
-    />
+        <ManagePasskeys
+            :canManagePasskeys="canManagePasskeys"
+            :passkeys="passkeys"
+        />
     </template>
 
     <ExtensionTokens :tokens="extensionTokens" />

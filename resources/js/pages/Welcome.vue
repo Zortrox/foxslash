@@ -103,7 +103,10 @@ import { dashboard, login, register } from '@/routes';
                             rel="noopener noreferrer"
                             class="flex h-11 items-center gap-2 rounded-full bg-card px-4 text-sm font-medium transition-colors hover:text-accent-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
                         >
-                            <Globe class="size-4 text-mint" aria-hidden="true" />
+                            <Globe
+                                class="size-4 text-mint"
+                                aria-hidden="true"
+                            />
                             matthew-clark.xyz
                         </a>
                     </li>

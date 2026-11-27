@@ -54,6 +54,7 @@ The extension contract. Change it together with the extension session/repo, neve
 - All of these are public, rate limited by the `steamchecker` limiter (120/min per IP) and send `Access-Control-Allow-Origin: *` because content scripts fetch with the page's origin.
 - `config/v2` serves `resources/steamchecker/config-v2.json`, a copy of the extension's `src/config/default-config.json` (contract in the extension's `docs/remote-config.md`). Keep the two in sync.
 - The legacy `/apps/steamchecker/selectors/` endpoint is not served here; its data is not in this repo.
+- `/apps/steamchecker` (`apps/Steamchecker.vue`) is the extension's page: what it does, store links and a changelog from the GitHub releases of `services.steamchecker.repository`, fetched by `App\Services\SteamcheckerChangelog` (cached an hour, failures five minutes, prereleases skipped). `/apps/steamchecker/privacy-policy` is the privacy policy the store listings link to; keep it true when what the app stores changes.
 
 ### Extension sign-in
 

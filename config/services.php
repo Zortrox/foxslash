@@ -41,6 +41,12 @@ return [
          * https://<hash>.extensions.allizom.org/. Comma separated.
          */
         'redirect_uris' => array_values(array_filter(array_map('trim', explode(',', (string) env('STEAMCHECKER_REDIRECT_URIS', ''))))),
+
+        /*
+         * The extension's GitHub repository (owner/name). Its releases are the
+         * changelog on /apps/steamchecker.
+         */
+        'repository' => env('STEAMCHECKER_REPOSITORY', 'Zortrox/steamchecker'),
     ],
 
     'steam' => [

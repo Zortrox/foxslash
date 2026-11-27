@@ -16,7 +16,7 @@ colors:
   fox-glow-soft: "oklch(0.837 0.128 66.29)"
   danger: "oklch(0.577 0.245 27.325)"
   success: "oklch(0.792 0.209 151.711)"
-  sun: "oklch(0.86 0.16 85)"
+  sun: "oklch(0.817 0.166 76.3)"
   berry: "oklch(0.76 0.14 355)"
   mint: "oklch(0.8 0.12 170)"
   lilac: "oklch(0.74 0.12 300)"

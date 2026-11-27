@@ -16,7 +16,7 @@
     --font-display: 'Fredoka', 'Instrument Sans', ui-rounded, sans-serif;
 
     /* Night-den accents (DESIGN.md): each has one job. */
-    --color-sun: oklch(0.86 0.16 85);
+    --color-sun: oklch(0.817 0.166 76.3); /* #ffb21e, the logo slash */
     --color-berry: oklch(0.76 0.14 355);
     --color-mint: oklch(0.8 0.12 170);
     --color-lilac: oklch(0.74 0.12 300);

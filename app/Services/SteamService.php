@@ -180,10 +180,6 @@ class SteamService
      */
     private function fetchAppListPage(int $lastAppId, int $retries = 2): array
     {
-        if ($retries < 0) {
-            throw new RuntimeException('Failed to fetch Steam app list after multiple attempts');
-        }
-
         $response = Http::get(self::API_URL.'/IStoreService/GetAppList/v1/', [
             'key' => config('services.steam.api_key'),
             'include_games' => true,
@@ -194,6 +190,10 @@ class SteamService
         ]);
 
         if (! $response->ok()) {
+            if ($response->clientError() || $retries === 0) {
+                throw new RuntimeException("Failed to fetch the Steam app list: HTTP {$response->status()}".($response->clientError() ? ' (check STEAM_API_KEY)' : ''));
+            }
+
             Sleep::for(5)->seconds();
 
             return $this->fetchAppListPage($lastAppId, $retries - 1);

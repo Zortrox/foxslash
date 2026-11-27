@@ -46,10 +46,12 @@ return [
     'steam' => [
         'api_key' => env('STEAM_API_KEY'),
         'client_id' => null,
-        'client_secret' => env('STEAM_CLIENT_SECRET'),
+        // Steam sign in reads the player profile with the same Web API key.
+        'client_secret' => env('STEAM_API_KEY'),
         'redirect' => env('STEAM_REDIRECT_URI'),
         'allowed_hosts' => ['foxslash.com', 'www.foxslash.com', 'localhost'],
-        'realm' => env('STEAM_REALM'),
+        // The provider prepends the scheme itself, so only the host may be passed on.
+        'realm' => parse_url((string) env('STEAM_REALM'), PHP_URL_HOST) ?: (env('STEAM_REALM') ?: null),
         'force_https' => env('STEAM_FORCE_HTTPS', true),
     ],
 ];

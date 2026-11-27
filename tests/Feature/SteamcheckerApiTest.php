@@ -7,6 +7,7 @@ use App\Services\SteamAppListFile;
 use Illuminate\Http\Client\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Sleep;
 
 const STEAM_ID = '76561197960287930';
 
@@ -230,4 +231,15 @@ test('the app sync job pages through steam, upserts games, and rebuilds the app 
         ->toBe([10 => 'Counter-Strike', 220 => 'Half-Life 2']);
     Http::assertSent(fn (Request $request) => str_contains($request->url(), 'GetAppList') && (int) $request['last_appid'] === 10);
     Storage::disk('local')->assertExists(SteamAppListFile::PATH);
+});
+
+test('the app sync job stops at once and names the status when steam rejects the key', function () {
+    Sleep::fake();
+    Http::fake(['api.steampowered.com/IStoreService/GetAppList/*' => Http::response('Forbidden', 403)]);
+
+    expect(fn () => (new SteamFetchGames)->handle())
+        ->toThrow(RuntimeException::class, 'Failed to fetch the Steam app list: HTTP 403 (check STEAM_API_KEY)');
+
+    Http::assertSentCount(1);
+    Sleep::assertNeverSlept();
 });

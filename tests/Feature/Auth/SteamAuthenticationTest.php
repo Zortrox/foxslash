@@ -41,6 +41,18 @@ test('users are redirected to steam for authentication', function () {
     $this->get('/oauth/steam')->assertRedirectContains('steamcommunity.com');
 });
 
+test('the steam realm accepts a host with or without a scheme', function (string $configured) {
+    $original = $_SERVER['STEAM_REALM'] ?? null;
+    $_SERVER['STEAM_REALM'] = $configured;
+    $services = require config_path('services.php');
+    $_SERVER['STEAM_REALM'] = $original;
+
+    config(['services.steam.realm' => $services['steam']['realm']]);
+
+    $this->get('/oauth/steam')
+        ->assertRedirectContains('openid.realm='.urlencode('https://foxslash.com').'&');
+})->with(['foxslash.com', 'https://foxslash.com', 'https://foxslash.com/']);
+
 test('the real steam driver builds an openid redirect', function () {
     $this->get('/oauth/steam')->assertRedirectContains('steamcommunity.com/openid/login');
 });

@@ -21,6 +21,7 @@
         "laravel/socialite": "^5.23",
         "laravel/tinker": "^3.0",
         "laravel/wayfinder": "^0.1.14",
+        "resend/resend-php": "^1.19",
         "socialiteproviders/steam": "^4.6",
         "spatie/laravel-permission": "^8.5",
         "typesense/typesense-php": "^5.2"

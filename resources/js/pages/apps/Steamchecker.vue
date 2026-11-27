@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Deferred, Head, Link } from '@inertiajs/vue3';
-import { ExternalLink } from '@lucide/vue';
+import { ExternalLink, Gift } from '@lucide/vue';
+import GameCoverArt from '@/components/GameCoverArt.vue';
 import SiteLayout from '@/layouts/SiteLayout.vue';
 import { privacy } from '@/routes/steamchecker';
 
@@ -64,16 +65,19 @@ const formatDate = (date: string): string =>
 
             <div class="mt-8 grid grid-cols-3 gap-3" aria-hidden="true">
                 <div class="tile">
-                    <div class="tile__art bg-lilac/30" />
+                    <GameCoverArt scene="peaks" class="tile__art" />
                     <span class="tile__name">New to you</span>
                 </div>
                 <div class="tile tile--owned">
                     <span class="tile__badge">Owned</span>
-                    <div class="tile__art bg-mint/30" />
+                    <GameCoverArt scene="space" class="tile__art" />
                     <span class="tile__name">Already owned</span>
                 </div>
                 <div class="tile tile--wished">
-                    <div class="tile__art bg-berry/30" />
+                    <span class="tile__gift">
+                        <Gift class="size-4" />
+                    </span>
+                    <GameCoverArt scene="castle" class="tile__art" />
                     <span class="tile__name">Wishlisted</span>
                 </div>
             </div>
@@ -245,7 +249,7 @@ const formatDate = (date: string): string =>
     @apply relative flex flex-col gap-2 rounded-lg bg-card p-2 transition-[opacity,filter] duration-300;
 }
 .tile__art {
-    @apply aspect-[4/3] rounded-md;
+    @apply aspect-[4/3] w-full overflow-hidden rounded-md;
 }
 .tile__name {
     @apply px-1 pb-1 text-xs font-medium sm:text-sm;
@@ -264,6 +268,18 @@ const formatDate = (date: string): string =>
     outline: 3px solid var(--color-sun);
     outline-offset: -3px;
     box-shadow: 0 0 14px color-mix(in oklch, var(--color-sun) 60%, transparent);
+}
+/* the light gold wash the extension lays over wishlisted cards */
+.tile--wished::after {
+    @apply pointer-events-none absolute inset-0 z-10 rounded-[inherit];
+    content: '';
+    background: color-mix(in oklch, var(--color-sun) 28%, transparent);
+}
+.tile__gift {
+    @apply absolute top-3 right-3 z-20 flex items-center justify-center rounded-lg border-2 p-1;
+    border-color: oklch(0.2 0.04 85);
+    background: var(--color-sun);
+    color: oklch(0.2 0.04 85);
 }
 
 .notes :deep(h3) {

@@ -48,7 +48,7 @@ return [
         'client_id' => null,
         'client_secret' => env('STEAM_CLIENT_SECRET'),
         'redirect' => env('STEAM_REDIRECT_URI'),
-        'allowed_hosts' => ['foxslash.com', 'localhost'],
+        'allowed_hosts' => ['foxslash.com', 'www.foxslash.com', 'localhost'],
         'realm' => env('STEAM_REALM'),
         'force_https' => env('STEAM_FORCE_HTTPS', true),
     ],

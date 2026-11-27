@@ -6,6 +6,7 @@ Personal site at foxslash.com and the backend for the steamchecker browser exten
 
 - Laravel 13, PHP 8.5 (Sail runtime), Filament 5 admin at `/admin`, Scout + Typesense for game search, spatie/laravel-permission.
 - Auth and the app shell follow the current Laravel Vue starter kit (`laravel/vue-starter-kit` main): Fortify (login, registration, password reset, email verification, two-factor, passkeys), Inertia v3 + Vue 3, Wayfinder for typed routes (no Ziggy), shadcn-vue components in `resources/js/components/ui`, Tailwind v4, Vite+ (`vp build`). Jetstream is gone. When upgrading, diff against the kit rather than inventing structure.
+- Inertia SSR is on. `@inertiajs/vite` reuses `resources/js/app.ts` as the SSR entry (no `ssr.ts`); `bun run build:ssr` writes `bootstrap/ssr/app.js`, served in production by `artisan inertia:start-ssr` (a Forge daemon, restarted on deploy with `inertia:stop-ssr --graceful`). In dev, `bun run dev` handles SSR itself. Tests set `INERTIA_SSR_ENABLED=false`. Code that touches `window`/`document` must run in `onMounted` or `WhenMounted`.
 - Pages live in lowercase `resources/js/pages`. Settings are `settings/profile` and `settings/security`; there is no Appearance page because the site is dark only.
 - `resources/js/components/ui/sidebar/SidebarProvider.vue` fails `bun run types:check` with two Ref typing errors. The file is identical to the kit's, so it is an upstream issue; the build is unaffected.
 - typesense/typesense-php is held on v5 because Scout's Typesense engine targets 4.9/5.x.

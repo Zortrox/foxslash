@@ -34,10 +34,22 @@ return [
         ],
     ],
 
+    'steamchecker' => [
+        /*
+         * Exact redirect URIs the extension sign-in may send codes to:
+         * Chrome https://<extension-id>.chromiumapp.org/ and Firefox
+         * https://<hash>.extensions.allizom.org/. Comma separated.
+         */
+        'redirect_uris' => array_values(array_filter(array_map('trim', explode(',', (string) env('STEAMCHECKER_REDIRECT_URIS', ''))))),
+    ],
+
     'steam' => [
+        'api_key' => env('STEAM_API_KEY'),
         'client_id' => null,
         'client_secret' => env('STEAM_CLIENT_SECRET'),
         'redirect' => env('STEAM_REDIRECT_URI'),
-        //'allowed_hosts' => ['example.com'],
+        'allowed_hosts' => ['foxslash.com', 'www.foxslash.com', 'localhost'],
+        'realm' => env('STEAM_REALM'),
+        'force_https' => env('STEAM_FORCE_HTTPS', true),
     ],
 ];

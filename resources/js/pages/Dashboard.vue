@@ -1,36 +1,62 @@
 <script setup lang="ts">
-import AppLayout from '@/layouts/AppLayout.vue';
-import { type BreadcrumbItem } from '@/types';
-import { Head } from '@inertiajs/vue3';
-import PlaceholderPattern from '../components/PlaceholderPattern.vue';
+import { Head, Link, usePage } from '@inertiajs/vue3';
+import { computed } from 'vue';
+import Heading from '@/components/Heading.vue';
+import SteamIcon from '@/components/SteamIcon.vue';
+import { Button } from '@/components/ui/button';
+import { dashboard } from '@/routes';
+import { edit as editProfile } from '@/routes/profile';
 
-const breadcrumbs: BreadcrumbItem[] = [
-    {
-        title: 'Dashboard',
-        href: '/dashboard',
+defineOptions({
+    layout: {
+        breadcrumbs: [
+            {
+                title: 'Dashboard',
+                href: dashboard(),
+            },
+        ],
     },
-];
+});
+
+const page = usePage();
+const hasSteam = computed(() =>
+    (
+        page.props.oauth as { connectedAccounts: { provider: string }[] }
+    ).connectedAccounts.some((account) => account.provider === 'steam'),
+);
 </script>
 
 <template>
     <Head title="Dashboard" />
 
-    <AppLayout :breadcrumbs="breadcrumbs">
-        <div class="flex h-full flex-1 flex-col gap-4 rounded-xl p-4 overflow-x-auto">
-            <div class="grid auto-rows-min gap-4 md:grid-cols-3">
-                <div class="relative aspect-video overflow-hidden rounded-xl border border-sidebar-border/70 dark:border-sidebar-border">
-                    <PlaceholderPattern />
+    <div class="flex flex-1 flex-col gap-6 p-4">
+        <Heading
+            title="Dashboard"
+            description="Your foxslash account and the steamchecker extension"
+        />
+
+        <div class="max-w-xl rounded-lg border border-border bg-card p-6">
+            <div class="flex items-start gap-4">
+                <SteamIcon class="size-8 shrink-0 text-accent-foreground" />
+                <div class="space-y-2">
+                    <h2 class="font-medium">steamchecker</h2>
+                    <p class="text-sm text-muted-foreground">
+                        {{
+                            hasSteam
+                                ? 'Your Steam account is connected. More steamchecker settings will show up here.'
+                                : 'Connect your Steam account so steamchecker can use your library and wishlist.'
+                        }}
+                    </p>
+                    <Button
+                        v-if="!hasSteam"
+                        variant="secondary"
+                        size="sm"
+                        as-child
+                    >
+                        <Link :href="editProfile()">Connect Steam</Link>
+                    </Button>
                 </div>
-                <div class="relative aspect-video overflow-hidden rounded-xl border border-sidebar-border/70 dark:border-sidebar-border">
-                    <PlaceholderPattern />
-                </div>
-                <div class="relative aspect-video overflow-hidden rounded-xl border border-sidebar-border/70 dark:border-sidebar-border">
-                    <PlaceholderPattern />
-                </div>
-            </div>
-            <div class="relative min-h-[100vh] flex-1 rounded-xl border border-sidebar-border/70 md:min-h-min dark:border-sidebar-border">
-                <PlaceholderPattern />
             </div>
         </div>
-    </AppLayout>
+    </div>
 </template>

@@ -1,0 +1,27 @@
+{
+    "agents": [
+        "copilot",
+        "claude_code"
+    ],
+    "cloud": false,
+    "guidelines": true,
+    "mcp": true,
+    "nightwatch": true,
+    "packages": [
+        "filament/filament"
+    ],
+    "sail": true,
+    "skills": [
+        "infer-conventions",
+        "fortify-development",
+        "laravel-best-practices",
+        "testing-best-practices",
+        "configure-nightwatch",
+        "scout-development",
+        "socialite-development",
+        "wayfinder-development",
+        "inertia-vue-development",
+        "tailwindcss-development",
+        "filament-development"
+    ]
+}

@@ -61,11 +61,14 @@ class ResolveUserFromSteam
     }
 
     /**
-     * Steam OpenID never shares an email address, so new users get a unique placeholder.
+     * Steam OpenID never shares an email address, so new users get a unique placeholder
+     * on the site's own domain, e.g. 76561197960287930@steam.foxslash.com.
      */
     public function placeholderEmail(SteamUser $steamUser): string
     {
-        return $steamUser->getId().'@steam.'.config('app.domain');
+        $domain = parse_url((string) config('app.url'), PHP_URL_HOST) ?: 'localhost';
+
+        return $steamUser->getId().'@steam.'.$domain;
     }
 
     private function findAccount(SteamUser $steamUser): ?ConnectedAccount

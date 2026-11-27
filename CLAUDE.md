@@ -32,7 +32,7 @@ Personal site at foxslash.com and the backend for the steamchecker browser exten
 ## Steam sign in
 
 - Plain Socialite with `socialiteproviders/steam`. Socialstream was removed because it does not support Laravel 13.
-- `AuthenticatedSessionSteamController` handles `/oauth/steam` and its callback; `App\Actions\Auth\ResolveUserFromSteam` links, finds or creates users. New Steam users get a placeholder email `<steamid64>@steam.<APP_DOMAIN>` and no password.
+- `AuthenticatedSessionSteamController` handles `/oauth/steam` and its callback; `App\Actions\Auth\ResolveUserFromSteam` links, finds or creates users. New Steam users get a placeholder email `<steamid64>@steam.<APP_URL host>` and no password.
 - Users with two-factor enabled are sent to Fortify's challenge. Connected-account and set-password routes live in `routes/oauth.php`; the frontend reads the `oauth` shared Inertia prop (`SteamSignIn.vue`, `ConnectedAccounts.vue`, `SetPassword.vue`).
 - `auth.user.avatar` is the linked Steam account's avatar URL; there are no uploaded profile photos.
 - Email verification is on for email signups only: Steam-created accounts are marked verified. Changing the email clears verification as usual.

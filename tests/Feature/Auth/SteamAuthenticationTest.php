@@ -62,6 +62,7 @@ test('unknown providers are not routed', function () {
 });
 
 test('new users are registered on first steam sign in', function () {
+    config(['app.url' => 'https://foxslash.com']);
     mockSteamCallback(fakeSteamUser());
 
     $response = $this->get('/oauth/steam/callback');
@@ -71,7 +72,7 @@ test('new users are registered on first steam sign in', function () {
 
     $user = User::sole();
     expect($user->name)->toBe('Steam User')
-        ->and($user->email)->toBe(EXAMPLE_STEAM_ID.'@steam.'.config('app.domain'))
+        ->and($user->email)->toBe(EXAMPLE_STEAM_ID.'@steam.foxslash.com')
         ->and($user->email_verified_at)->not->toBeNull()
         ->and($user->password)->toBeNull();
 

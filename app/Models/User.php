@@ -75,8 +75,12 @@ class User extends Authenticatable implements FilamentUser, MustVerifyEmail, Pas
         );
     }
 
+    /**
+     * Super Admins get the whole panel; users who can manage users get the
+     * Access section only (the other resources' policies keep them out).
+     */
     public function canAccessPanel(Panel $panel): bool
     {
-        return $this->hasRole('Super Admin');
+        return $this->hasRole('Super Admin') || $this->checkPermissionTo('manage users');
     }
 }

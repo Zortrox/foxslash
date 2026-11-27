@@ -8,11 +8,12 @@ use App\Models\User;
 class SteamGamePolicy
 {
     /**
-     * Determine whether the user can view any models.
+     * Determine whether the user can view any models. Steam games are for
+     * Super Admins only, who pass every gate through Gate::before.
      */
     public function viewAny(User $user): bool
     {
-        return true;
+        return false;
     }
 
     /**

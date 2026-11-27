@@ -14,7 +14,8 @@ Personal site at foxslash.com and the backend for the steamchecker browser exten
 ## Authorization
 
 - Use spatie/laravel-permission roles and permissions for all access control, including future moderation of alias and site suggestions.
-- `Super Admin` passes every gate (`Gate::before` in `AppServiceProvider`) and is the only role that can open Filament (`User::canAccessPanel`). Assign it with `artisan app:assign-super-admin-user {email}`.
+- `Super Admin` passes every gate (`Gate::before` in `AppServiceProvider`). Assign it with `artisan app:assign-super-admin-user {email}`.
+- Filament (`User::canAccessPanel`) is open to Super Admins and to anyone with the `manage users` permission (created by a migration). That permission only reaches the Access group (Users, Roles, Permissions); `SteamGamePolicy` keeps Steam games Super Admin only. Policies stop non-Super Admins from granting, editing or deleting Super Admin, the `Super Admin` role or the `manage users` permission, or deleting themselves. Users created in Filament are marked verified.
 - The frontend gets `auth.user.roles` and `auth.user.permissions` from `HandleInertiaRequests`; check them with `resources/js/composables/usePermission.ts`.
 
 ## Local environment

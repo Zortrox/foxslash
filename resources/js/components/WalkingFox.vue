@@ -139,36 +139,53 @@ const stars = [
                         <g
                             transform="translate(100 40) scale(1.14) translate(-100 -40)"
                         >
-                            <!-- Ears first so the head covers their bases. -->
-                            <path
-                                d="M98.5 34 L101.5 10 L112.5 29 Z"
-                                fill="#e8651a"
-                                stroke="#e8651a"
-                                stroke-width="2.4"
-                                stroke-linejoin="round"
-                            />
-                            <path
-                                d="M101.8 27.5 L103 15 L108.8 26 Z"
-                                fill="#3a1a10"
-                                stroke="#3a1a10"
-                                stroke-width="1.2"
-                                stroke-linejoin="round"
-                            />
-                            <g class="fox__ear">
+                            <!--
+                                Ears first so the head covers their bases. They sweep back as
+                                it trots. The far ear is smaller and darker, seen from behind.
+                                Each ear clips its tip (and the near one its inside) to its outline.
+                            -->
+                            <defs>
+                                <clipPath id="fox-ear-far">
+                                    <path
+                                        d="M100.5 34 C101 24 104 15 106.4 10.2 Q107.5 8.2 108.6 10.2 C111 15 114 24 114.5 34 Z"
+                                    />
+                                </clipPath>
+                                <clipPath id="fox-ear-near">
+                                    <path
+                                        d="M106.5 34 C107 24 110 15 112.4 10.2 Q113.5 8.2 114.6 10.2 C117 15 120 24 120.5 34 Z"
+                                    />
+                                </clipPath>
+                            </defs>
+                            <g
+                                transform="rotate(-28 107.5 34) translate(107.5 34) scale(0.82) translate(-107.5 -34)"
+                            >
                                 <path
-                                    d="M107.5 31 L116 9.5 L121.5 32 Z"
-                                    fill="#f97a1f"
-                                    stroke="#f97a1f"
-                                    stroke-width="2.4"
-                                    stroke-linejoin="round"
+                                    d="M100.5 34 C101 24 104 15 106.4 10.2 Q107.5 8.2 108.6 10.2 C111 15 114 24 114.5 34 Z"
+                                    fill="#b8501a"
                                 />
                                 <path
-                                    d="M110.8 27.5 L115.6 15 L118.6 28.5 Z"
-                                    fill="#3a1a10"
-                                    stroke="#3a1a10"
-                                    stroke-width="1.2"
-                                    stroke-linejoin="round"
+                                    d="M97.5 0 H119.5 V11.8 Q107.5 14.4 97.5 11.8 Z"
+                                    fill="#4a2414"
+                                    clip-path="url(#fox-ear-far)"
                                 />
+                            </g>
+                            <g transform="rotate(-22 113.5 34)">
+                                <g class="fox__ear">
+                                    <path
+                                        d="M106.5 34 C107 24 110 15 112.4 10.2 Q113.5 8.2 114.6 10.2 C117 15 120 24 120.5 34 Z"
+                                        fill="#f97a1f"
+                                    />
+                                    <g clip-path="url(#fox-ear-near)">
+                                        <path
+                                            d="M110.1 34 C110.5 25 112 18 113.7 13.5 C115.3 18 117.1 25 117.7 34 Z"
+                                            fill="#fff3e4"
+                                        />
+                                        <path
+                                            d="M103.5 0 H125.5 V11.8 Q113.5 14.4 103.5 11.8 Z"
+                                            fill="#4a2414"
+                                        />
+                                    </g>
+                                </g>
                             </g>
                             <path
                                 d="M92 44 C94 34 98 28 106 26 C114 24 122 28 124 34 L133 38.5 C134.6 39.4 134.4 41.6 132.6 42 L122 44.6 C118 50 110 52 103 50 C97 48.5 93 47 92 44 Z"
@@ -322,7 +339,7 @@ const stars = [
 }
 
 .fox__ear {
-    transform-origin: 30% 100%;
+    transform-origin: 20% 100%;
 }
 
 .fox__eye {

@@ -243,3 +243,10 @@ test('the app sync job stops at once and names the status when steam rejects the
     Http::assertSentCount(1);
     Sleep::assertNeverSlept();
 });
+
+test('the app sync job can outlast a default worker without being handed out twice', function () {
+    $job = new SteamFetchGames;
+
+    expect($job->timeout)->toBeGreaterThan(60)
+        ->and(config('queue.connections.database.retry_after'))->toBeGreaterThan($job->timeout);
+});

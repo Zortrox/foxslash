@@ -14,12 +14,17 @@ class SteamFetchGames implements ShouldQueue
     use Queueable;
 
     /**
-     * Create a new job instance.
+     * Paging through every Steam app and upserting them takes longer than a
+     * worker's default 60 seconds.
      */
-    public function __construct()
-    {
-        //
-    }
+    public int $timeout = 600;
+
+    /**
+     * The schedule runs it again tomorrow, so a failed run is not retried.
+     */
+    public int $tries = 1;
+
+    public bool $failOnTimeout = true;
 
     /**
      * Execute the job.
